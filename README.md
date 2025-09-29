@@ -1,6 +1,6 @@
-# Nashik Subscription Management System
+# Expense Subscription Nashik Management System
 
-A modern subscription management system that helps users easily manage and track expenses and renewals for various subscription services.
+A modern subscription management system but also expense management system that helps users easily manage and track expenses and renewals for various subscription services.
 
 ## 📸 Interface Preview
 
@@ -67,7 +67,6 @@ A modern subscription management system that helps users easily manage and track
 - **Routing**: React Router
 - **Charts**: Recharts
 - **UI Components**: Radix UI
-- **Internationalization**: React i18next + i18next-browser-languagedetector
 
 ### Backend
 - **Runtime**: Node.js
@@ -95,7 +94,7 @@ A modern subscription management system that helps users easily manage and track
 1. **Clone the project**
 ```bash
 git clone <repository-url>
-cd nashik-expense-subscription-management
+cd expense-subscription-nashik-management
 ```
 
 2. **Configure environment variables**
