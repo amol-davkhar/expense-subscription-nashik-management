@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  expense-nashik:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: expense-nashik
+    env_file:
+      - .env
+    ports:
+      - "${PORT:-3001}:${PORT:-3001}"
+    volumes:
+      - expense-nashik-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "const http=require('http');http.get('http://localhost:${PORT:-3001}/api/health',res=>process.exit(res.statusCode===200?0:1)).on('error',()=>process.exit(1));"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+volumes:
+  expense-nashik-data:
+    driver: local
