@@ -119,6 +119,23 @@ cd expense-subscription-nashik-management
    - Comment out the `image` line and uncomment the `build` section in `docker-compose.yml`, then:
      ```bash
      docker compose build && docker compose up -d
+      ```
+
+   **C. Run with `docker run`**
+   ```bash
+   docker run -d \
+     --name subscription-manager \
+     -e SESSION_SECRET=your_session_secret \
+     -e ADMIN_USERNAME=admin \
+     -e ADMIN_PASSWORD=your_admin_password \
+     -e PORT=3001 \
+     -v subscription-data:/app/data \
+     -p 3001:3001 \
+     ghcr.io/huhusmang/subscription-management:latest
+   ```
+   - Add extra `-e` flags for optional settings (e.g. `-e TIANAPI_KEY=...`, `-e BASE_CURRENCY=USD`) as needed.
+   - Prefer secrets management or an `.env` file in production; you can swap the `-e` flags for `--env-file /absolute/path/to/.env` if your environment supports it.
+
    
 4. **Access the application**
    - Frontend: http://localhost:3001
